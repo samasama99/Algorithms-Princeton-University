@@ -1,5 +1,5 @@
 public class QuickUnionUF {
-    private int[] id;
+    private final int[] id;
 
 	public QuickUnionUF(int N) {
 		id = new int[N];
@@ -35,12 +35,12 @@ public class QuickUnionUF {
 		quickUnionUF.union(6, 9);
 		quickUnionUF.union(2, 7);
 
-		assert quickUnionUF.find(0, 1) == true;
-		assert quickUnionUF.find(8, 1) == true;
-		assert quickUnionUF.find(9, 6) == true;
+        if (!quickUnionUF.find(0, 1)) throw new AssertionError();
+        if (!quickUnionUF.find(8, 1)) throw new AssertionError();
+        if (!quickUnionUF.find(9, 6)) throw new AssertionError();
 
-		assert quickUnionUF.find(8, 2) == false;
-		assert quickUnionUF.find(0, 9) == false;
+        if (quickUnionUF.find(8, 2)) throw new AssertionError();
+        if (quickUnionUF.find(0, 9)) throw new AssertionError();
 
 		System.out.println("[TEST] ALL PASSED");
 	}
